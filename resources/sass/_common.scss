@@ -1,0 +1,38 @@
+/*
+.rettangolo_rosso {
+  width: 900px;
+  height: 400px;
+  background-color: red;
+}
+
+@media screen and (max-width: 992px) {
+  .rettangolo_rosso {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .rettangolo_rosso {
+    width: 100%;
+  }
+}
+*/
+
+/**** mobile first ****/
+.rettangolo_rosso {
+  width: 100%;
+  height: 400px;
+  background-color: red;
+}
+
+@media (min-width: 992px) {
+  .rettangolo_rosso {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1240px) {
+  .rettangolo_rosso {
+    width: 900px;
+  }
+}
