@@ -14,3 +14,5 @@
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('/libri', 'BookController');
+
+Route::post('/', 'HomeController@saveMessage')->name('contact.save');

@@ -3,20 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Message;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewQuoteRequest;
 
 class HomeController extends Controller
 {
   public function index() {
-    // calcoli
-    // logica
-    // controlli
-    // recupero dei deti
-    // salvataggio dei dati
-    $data = [
-      'nome' => 'Sofia',
-      'cognome' => 'Perlari',
-      'studenti' => ['Giuseppe', 'Giovanni', 'Lucia', 'Pietro']
-    ];
-    return view('home', $data);
+    return view('home');
+  }
+
+  public function saveMessage(Request $request) {
+    $dati = $request->all();
+    $nuovo_messaggio = new Message();
+    $nuovo_messaggio->fill($dati);
+    $nuovo_messaggio->save();
+
+    Mail::to('admin@mycompany.com')->send(new NewQuoteRequest($nuovo_messaggio));
+
+    return view('thankyou');
   }
 }
